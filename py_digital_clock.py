@@ -1,4 +1,4 @@
-import datetime 
+import datetime as dt 
 import time
 import os
 import locale
@@ -6,11 +6,11 @@ import locale
 class Timezone:
     def __init__(self, offset_hours):
         self.offset_hours = offset_hours
-        self.timezone = datetime.timezone(datetime.timedelta(hours=offset_hours))
+        self.timezone = dt.timezone(dt.timedelta(hours=offset_hours))
 
     def get_time(self):
         locale.setlocale(locale.LC_ALL, 'hr_HR')
-        return datetime.datetime.now(self.timezone).strftime("%A %d. %B %Y. %H:%M:%S")
+        return dt.datetime.now(self.timezone).strftime("%A %d. %B %Y. %H:%M:%S")
 
 pacific_tz = Timezone(-7)
 central_tz = Timezone(-5)
